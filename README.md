@@ -23,7 +23,7 @@ This tool helps you manage study sessions, stay focused, and maintain a history 
 - Data Storage: The application saves logs to a static file path. You can customize the storage location directly in the source code:
 ```csharp
 // Example path modification
-string filePath = @"C:\YourDirectory\StudyLogs.txt";
+string filePath = @"C:\YourDirectory\StudyLogs.txt";```
 
 ⚠️ Disclaimer
 This is an educational project. It is intended for learning purposes and is not designed for full-scale production or critical time-tracking reliability.
