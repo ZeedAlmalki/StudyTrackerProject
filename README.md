@@ -18,7 +18,6 @@ This tool helps you manage study sessions, stay focused, and maintain a history 
 - Control: You can use Stop Timer at any time if you need a break.
 - Save Progress: Once you're finished, go to the Timer Menu and select Save Progress to log your time.
 - Review: Switch to the Status tab to view your saved session history.
-
 ## 🛠 Technical Notes
 
 * **Data Storage:** The application saves logs to a static file path. You can customize the storage location directly in the source code:
@@ -26,6 +25,7 @@ This tool helps you manage study sessions, stay focused, and maintain a history 
 ```csharp
 // Example path modification
 string filePath = @"C:\YourDirectory\StudyLogs.txt";
+
 
 ⚠️ Disclaimer
 This is an educational project. It is intended for learning purposes and is not designed for full-scale production or critical time-tracking reliability. Features and data handling are simplified for educational clarity.
