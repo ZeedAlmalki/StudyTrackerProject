@@ -23,9 +23,10 @@ namespace StudyTracker
         int Seconds = 0;
         int Minutes = 0;
         int Hours = 0;
-        string TimeOutOf = "";
+        string BaseTime = "";
         string StudyingFor = "";
         bool isOff;
+        bool isOn;
         bool HasBeenStarted = false;
 
         bool isValid()
@@ -77,7 +78,7 @@ namespace StudyTracker
                 stMinute = "0" + stMinute;
             }
 
-            TimeOutOf = (Hours + ":" + stMinute + ":" + stSecond);
+            BaseTime = (Hours + ":" + stMinute + ":" + stSecond);
 
             }
             else
@@ -111,13 +112,20 @@ namespace StudyTracker
         {
             //= Convert.ToInt32(txtBoxTimer.Text);
 
+            if (isOn)
+                return;
+
+            isOn = true;
             if (!isValid())
                 return;
 
-            StudyingFor = getStudyingFor();
-            SetTime();
-            TimeCorrection();
-            StartAt = FullDate(DateTime.Now);
+            if (!HasBeenStarted)
+            {
+                StudyingFor = getStudyingFor();
+                SetTime();
+                TimeCorrection();
+                StartAt = FullDate(DateTime.Now);
+            }
             setSetteingsOfIsStart();
         }
 
@@ -132,7 +140,9 @@ namespace StudyTracker
             if (SecondsOfTimer == Convert.ToInt32(Seconds) && (MinutesOfTimer == Convert.ToInt32(Minutes) && (HoursOfTimer == Convert.ToInt32(Hours))))
             {
                 TimerStudyTracker.Enabled = false;
-                MessageBox.Show("Completed");
+                niStudyTracker.BalloonTipText = "Timer Completed!";
+                niStudyTracker.BalloonTipTitle = "Study Tracker";
+                niStudyTracker.ShowBalloonTip(3000);
                 SaveData();
                 return true;
             }
@@ -191,6 +201,7 @@ namespace StudyTracker
 
         private void btnOffTimer_Click(object sender, EventArgs e)
         {
+               isOn = false;
             if (isOff == true)
             {
                 MessageBox.Show("Timer Is Stopped");
@@ -274,11 +285,12 @@ namespace StudyTracker
 
         string AllDataText()
         {
-            return lblTimer.Text + "#//#" + TimeOutOf + "#//#" + StudyingFor + "#//#" + StartAt + "#//#" + EndAt + Environment.NewLine;
+            return lblTimer.Text + "#//#" + BaseTime + "#//#" + StudyingFor + "#//#" + StartAt + "#//#" + EndAt + Environment.NewLine;
         }
 
         void SaveData()
         {
+            EndAt = FullDate(DateTime.Now);
             File.AppendAllText(FilePath, AllDataText());
             this.Close();
         }
@@ -296,8 +308,6 @@ namespace StudyTracker
         {
             if (!IsStart())
                 return;
-
-            EndAt = FullDate(DateTime.Now);
 
             SaveDataAfterAsk();
           

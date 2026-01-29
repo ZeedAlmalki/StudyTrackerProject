@@ -50,6 +50,8 @@
             this.Reason = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Start = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.End = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.niStudyTracker = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.DetailsAboutTimer.SuspendLayout();
             this.tbTimer.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -82,7 +84,7 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save Progress";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -229,6 +231,17 @@
             this.End.Text = "End";
             this.End.Width = 200;
             // 
+            // niStudyTracker
+            // 
+            this.niStudyTracker.Icon = ((System.Drawing.Icon)(resources.GetObject("niStudyTracker.Icon")));
+            this.niStudyTracker.Text = "StudyTracker";
+            this.niStudyTracker.Visible = true;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // StudyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +287,8 @@
         private System.Windows.Forms.ColumnHeader Reason;
         private System.Windows.Forms.ColumnHeader Start;
         private System.Windows.Forms.ColumnHeader End;
+        private System.Windows.Forms.NotifyIcon niStudyTracker;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
