@@ -6,7 +6,7 @@ This tool helps you manage study sessions, stay focused, and maintain a history 
 ✨ Features
 - Customizable Timer: Set study sessions using hours, minutes, and seconds.
 - Subject Tracking: Tag your sessions with specific subjects or task names.
-- Session Controls: Easily Start, Stop, and Reset the timer.
+- Session Controls: Easily Start, Stop.
 - Automatic Logging: Saves your session data to a local text file.
 - History View: Access the "Status" tab to review all past study sessions.
 
