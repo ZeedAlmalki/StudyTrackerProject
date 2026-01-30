@@ -115,9 +115,11 @@ namespace StudyTracker
             if (isOn)
                 return;
 
-            isOn = true;
             if (!isValid())
                 return;
+
+            isOn = true;
+          
 
             if (!HasBeenStarted)
             {
@@ -201,7 +203,10 @@ namespace StudyTracker
 
         private void btnOffTimer_Click(object sender, EventArgs e)
         {
-               isOn = false;
+            if (!IsStart())
+                return;
+
+            isOn = false;
             if (isOff == true)
             {
                 MessageBox.Show("Timer Is Stopped");
